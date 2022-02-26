@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Services\UpdateNews;
 
 class GetArticlesController extends Controller
 {
@@ -35,8 +35,9 @@ class GetArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        return Http::get('https://api.spaceflightnewsapi.net/v3/articles');
-    }
+        $articles = app(UpdateNews::class)->execute();
+        return $articles[0];
+    }   
 
     /**
      * Display the specified resource.
