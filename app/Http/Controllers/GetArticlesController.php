@@ -35,7 +35,8 @@ class GetArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        return Http::get('https://api.spaceflightnewsapi.net/v3/articles');
+        $newsupdate = Http::get('https://api.spaceflightnewsapi.net/v3/articles');
+        return $newsupdate[0];
     }
 
     /**
