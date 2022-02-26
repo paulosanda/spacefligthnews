@@ -35,6 +35,7 @@ class GetArticlesController extends Controller
      */
     public function store(Request $request)
     {
+
         $articles = app(UpdateNews::class)->execute();
         return $articles[0];
     }   
