@@ -3,19 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Services\UpdateNews;
+use App\Services\InsertNews;
+use App\Services\GetNews;
+use App\Services\GetArticle;
+use App\Services\DeleteNews;
+use App\Http\Resources\NewsIndexResource;
 
-class GetArticlesController extends Controller
+class ArticlesController extends Controller
 {
+     
     /**
-     * Display a listing of the resource.
+     * index
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
-        //
-    }
+        $news = app(GetNews::class)->execute();
+        return NewsIndexResource::collection($news);
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -26,18 +33,21 @@ class GetArticlesController extends Controller
     {
         //
     }
-
+    
     /**
-     * Store a newly created resource in storage.
+     * store
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @return void
      */
     public function store(Request $request)
     {
-        $newsupdate = Http::get('https://api.spaceflightnewsapi.net/v3/articles');
-        return $newsupdate[0];
-    }
+        $articles = app(UpdateNews::class)->execute();
+        
+        $insert = app(InsertNews::class)->execute($articles);
+
+        return $insert;
+    }   
 
     /**
      * Display the specified resource.
@@ -47,7 +57,9 @@ class GetArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = app(GetArticle::class)->execute($id);
+
+        return new NewsIndexResource($article);
     }
 
     /**
@@ -79,8 +91,10 @@ class GetArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $execute = app(DeleteNews::class)->execute($id);
+
+        return $execute;
     }
 }
