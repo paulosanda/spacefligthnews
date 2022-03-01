@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('reference_id')->unique();
+            $table->string('reference_id')->nullable();
             $table->string('title');
             $table->string('url');
             $table->string('imageUrl')->nullable();

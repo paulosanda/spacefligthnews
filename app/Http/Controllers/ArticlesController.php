@@ -8,7 +8,9 @@ use App\Services\InsertNews;
 use App\Services\GetNews;
 use App\Services\GetArticle;
 use App\Services\DeleteNews;
+use App\Services\CreateArticle;
 use App\Http\Resources\NewsIndexResource;
+use DateTime;
 
 class ArticlesController extends Controller
 {
@@ -24,14 +26,26 @@ class ArticlesController extends Controller
         return NewsIndexResource::collection($news);
         }
 
+        
     /**
-     * Show the form for creating a new resource.
+     * create
      *
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @return void
      */
-    public function create()
-    {
-        //
+    public function create(Request $request)
+    { 
+        $create = app(CreateArticle::class)->execute([
+            'featured' => $request->featured,
+            'title' => $request->title,
+            'url' => $request->url,
+            'imageUrl' => $request->imageUrl,
+            'newsSite' => $request->newsSite,
+            'summary' => $request->summary,
+            'publishedAt' => date('Y-m-d H:i:s')
+        ]);
+        
+        return $create;
     }
     
     /**
