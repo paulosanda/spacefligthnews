@@ -8,7 +8,7 @@ use App\Models\News;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 
-class GetArticulesControllerTest extends TestCase
+class ArticulesControllerTest extends TestCase
 {
     use DatabaseTransactions, WithFaker;
 
@@ -16,8 +16,14 @@ class GetArticulesControllerTest extends TestCase
     {
         parent::setup();
         $this->artisan('migrate');
-        $this->get(route('articles.update'));
+        $this->get(route('articles.store'));
         
+    }
+
+    public function test_challenge()
+    {
+        $this->get(route('challenge.home'))
+        ->assertStatus(200);
     }
     
     /**
@@ -71,5 +77,21 @@ class GetArticulesControllerTest extends TestCase
 
         $this->post(route('articles.create'),$data)
         ->assertStatus(201);
+    }
+
+    public function test_update_article()
+    {
+        $article = News::first();
+       
+        $data['featured'] = $article->featured;
+        $data['title'] = $article->title;
+        $data['url'] = $article->url;
+        $data['imageUrl'] = $article->url;
+        $data['newsSite'] = $article->url;
+        $data['summary'] = $article->summary.'UPDATED TO TEST';
+        
+        $this->put(route('articles.update',['id'=>$article->id]),$data)
+        ->assertStatus(200);
+ 
     }
 }

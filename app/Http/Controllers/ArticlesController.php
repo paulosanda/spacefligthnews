@@ -9,6 +9,7 @@ use App\Services\GetNews;
 use App\Services\GetArticle;
 use App\Services\DeleteNews;
 use App\Services\CreateArticle;
+use App\Services\UpdateArticle;
 use App\Http\Resources\NewsIndexResource;
 use DateTime;
 
@@ -77,17 +78,6 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -96,7 +86,15 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = app(UpdateArticle::class)->execute([
+            'id' => $id,
+            'title' => $request->title,
+            'url' => $request->url,
+            'imageUrl' => $request->imageUrl,
+            'newsSite' => $request->newsSite,
+            'summary' => $request->summary,
+            'updatedAt' => date('Y-m-d H:i:s')
+        ]);
     }
 
     /**

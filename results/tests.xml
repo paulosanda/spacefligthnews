@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="4" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="2.972479">
-    <testsuite name="Feature" tests="4" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="2.972479">
-      <testsuite name="Tests\Feature\Controller\GetArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/GetArticulesControllerTest.php" tests="4" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="2.972479">
-        <testcase name="test_index" class="Tests\Feature\Controller\GetArticulesControllerTest" classname="Tests.Feature.Controller.GetArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/GetArticulesControllerTest.php" line="28" assertions="1" time="0.941678"/>
-        <testcase name="test_show" class="Tests\Feature\Controller\GetArticulesControllerTest" classname="Tests.Feature.Controller.GetArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/GetArticulesControllerTest.php" line="34" assertions="10" time="0.378577"/>
-        <testcase name="test_delete" class="Tests\Feature\Controller\GetArticulesControllerTest" classname="Tests.Feature.Controller.GetArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/GetArticulesControllerTest.php" line="55" assertions="1" time="0.855576"/>
-        <testcase name="test_post" class="Tests\Feature\Controller\GetArticulesControllerTest" classname="Tests.Feature.Controller.GetArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/GetArticulesControllerTest.php" line="63" assertions="1" time="0.796648"/>
+  <testsuite name="" tests="6" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="3.652680">
+    <testsuite name="Feature" tests="6" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="3.652680">
+      <testsuite name="Tests\Feature\Controller\ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" tests="6" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="3.652680">
+        <testcase name="test_challenge" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="23" assertions="1" time="0.964434"/>
+        <testcase name="test_index" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="34" assertions="1" time="0.781659"/>
+        <testcase name="test_show" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="40" assertions="10" time="0.397397"/>
+        <testcase name="test_delete" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="61" assertions="1" time="0.756049"/>
+        <testcase name="test_post" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="69" assertions="1" time="0.379917"/>
+        <testcase name="test_update_article" class="Tests\Feature\Controller\ArticulesControllerTest" classname="Tests.Feature.Controller.ArticulesControllerTest" file="/var/www/html/tests/Feature/Controller/ArticulesControllerTest.php" line="82" assertions="1" time="0.373225"/>
       </testsuite>
     </testsuite>
   </testsuite>
