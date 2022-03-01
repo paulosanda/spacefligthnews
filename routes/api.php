@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('/', function () {
+    return response( "Back-end Challenge 2021 🏅 - Space Flight News",200);
+});
 Route::get('/articles/update', 'App\Http\Controllers\ArticlesController@store')->name('articles.update');
 Route::get('/articles','App\Http\Controllers\ArticlesController@index')->name('articles.index');
 Route::get('/articles/{id}','App\Http\Controllers\ArticlesController@show')->name('articles.show');
 Route::delete('/articles/{id}', 'App\Http\Controllers\ArticlesController@delete')->name('articles.delete');
+Route::post('/articles','App\Http\Controllers\ArticlesController@create')->name('articles.create');

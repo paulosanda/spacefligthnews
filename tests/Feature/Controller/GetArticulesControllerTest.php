@@ -6,10 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\News;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class GetArticulesControllerTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseTransactions, WithFaker;
 
     protected function setup():void
     {
@@ -57,5 +58,18 @@ class GetArticulesControllerTest extends TestCase
 
         $this->delete(route('articles.delete',['id'=>$article_id->id]))
         ->assertStatus(200);
+    }
+
+    public function test_post()
+    {
+        $data['featured'] = 0;
+        $data['title'] = $this->faker->title(50);
+        $data['url'] = $this->faker->url();
+        $data['imageUrl'] = $this->faker->url();
+        $data['newsSite'] = $this->faker->url();
+        $data['summary'] = $this->faker->text(500);
+
+        $this->post(route('articles.create'),$data)
+        ->assertStatus(201);
     }
 }
