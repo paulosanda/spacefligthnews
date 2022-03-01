@@ -5,3 +5,7 @@
 
 ### Instalação
 <p>Após clonar o repositório rodar o vendor/bin/sail
+
+### Atualização diária por crontab
+<p>Crie em seu crontab uma tarefa diária para <code>wget http://localhost/api/articles/update</code> ou substitua para o domínio o IP que estiver utlizando
+
