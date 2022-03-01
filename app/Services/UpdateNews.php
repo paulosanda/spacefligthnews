@@ -20,7 +20,7 @@ class UpdateNews extends BaseService
     public function execute()
     {
         try {
-            return Http::get($this->news );
+            return  json_decode(Http::get($this->news ), true);
         } catch (\Exception $e) {
             return $e;
         }

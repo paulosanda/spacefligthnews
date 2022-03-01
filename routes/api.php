@@ -9,3 +9,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/articles/update', 'App\Http\Controllers\GetArticlesController@store')->name('articles.update');
+Route::get('/articles','App\Http\Controllers\GetArticlesController@index')->name('articles.index');
+Route::get('/articles/{id}','App\Http\Controllers\GetArticlesController@show')->name('articles.show');

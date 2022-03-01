@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\UpdateNews;
+use App\Services\InsertNews;
+use App\Services\GetNews;
+use App\Services\GetArticle;
+use App\Http\Resources\NewsIndexResource;
+use App\Models\News;
 
 class GetArticlesController extends Controller
 {
+     
     /**
-     * Display a listing of the resource.
+     * index
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
-        //
-    }
+        $news = app(GetNews::class)->execute();
+        return NewsIndexResource::collection($news);
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -26,18 +33,20 @@ class GetArticlesController extends Controller
     {
         //
     }
-
+    
     /**
-     * Store a newly created resource in storage.
+     * store
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @return void
      */
     public function store(Request $request)
     {
-
         $articles = app(UpdateNews::class)->execute();
-        return $articles[0];
+        
+        $insert = app(InsertNews::class)->execute($articles);
+
+        return $insert;
     }   
 
     /**
@@ -48,7 +57,9 @@ class GetArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = app(GetArticle::class)->execute($id);
+        //dd($article);
+        return new NewsIndexResource($article);
     }
 
     /**

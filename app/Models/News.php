@@ -14,17 +14,30 @@ class News extends Model
         'title',
         'url',
         'imageUrl',
+        'newsSite',
         'summary',
         'publishedAt',
+        'updatedAt',
+        'featured'
     ];
-
+    
+    /**
+     * launches
+     *
+     * @return void
+     */
     public function launches()
     {
-        $this->hasOne('App\Launche');
+        return $this->hasOne(Launche::class);
     }
-
+    
+    /**
+     * events
+     *
+     * @return void
+     */
     public function events()
     {
-        $this->hasOne('App\Events');
+        return $this->hasOne(Event::class);
     }
 }

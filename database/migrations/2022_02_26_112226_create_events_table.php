@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
+            $table->foreignId('news_id')->references('id')->on('news')->onDelete('cascade');
             $table->string('reference_id');
             $table->string('provider');
             $table->timestamps();
