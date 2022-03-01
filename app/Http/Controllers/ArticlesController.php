@@ -10,7 +10,7 @@ use App\Services\GetArticle;
 use App\Services\DeleteNews;
 use App\Http\Resources\NewsIndexResource;
 
-class GetArticlesController extends Controller
+class ArticlesController extends Controller
 {
      
     /**
