@@ -1,0 +1,46 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Challenge SpaceNews 🏅",
+        "description": "Just a simple challenge",
+        "contact": {
+            "email": "paulosanda@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/articles": {
+            "get": {
+                "tags": [
+                    "All Articles"
+                ],
+                "summary": "List articles with pagination",
+                "description": "Returns articles",
+                "operationId": "d87f751e8f428fb968c2791aa22f017e",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Display"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

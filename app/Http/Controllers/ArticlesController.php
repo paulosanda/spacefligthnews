@@ -17,6 +17,29 @@ class ArticlesController extends Controller
 {
      
     /**
+     * /**
+     * List Orders from specific wallet.
+     *
+     *  @OA\Get(
+     *     path="/api/articles",
+     *     tags={"All Articles"},
+     *     summary="List articles with pagination",
+     *     description="Returns articles",
+     *
+     *     @OA\Response(
+     *          response="200",
+     *          description="Success",
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Unprocessable Entity"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Not found"
+     *     ),
+     * )
+     * 
      * index
      *
      * @return void
