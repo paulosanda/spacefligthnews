@@ -7,8 +7,8 @@ use App\Services\UpdateNews;
 use App\Services\InsertNews;
 use App\Services\GetNews;
 use App\Services\GetArticle;
+use App\Services\DeleteNews;
 use App\Http\Resources\NewsIndexResource;
-use App\Models\News;
 
 class GetArticlesController extends Controller
 {
@@ -58,7 +58,7 @@ class GetArticlesController extends Controller
     public function show($id)
     {
         $article = app(GetArticle::class)->execute($id);
-        //dd($article);
+
         return new NewsIndexResource($article);
     }
 
@@ -91,8 +91,10 @@ class GetArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $execute = app(DeleteNews::class)->execute($id);
+
+        return $execute;
     }
 }

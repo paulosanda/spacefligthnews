@@ -14,7 +14,9 @@ class GetArticulesControllerTest extends TestCase
     protected function setup():void
     {
         parent::setup();
-        $this->artisan('db:seed');
+        $this->artisan('migrate');
+        $this->get(route('articles.update'));
+        
     }
     
     /**
@@ -24,7 +26,6 @@ class GetArticulesControllerTest extends TestCase
      */
     public function test_index()
     {
-        $this->get(route('articles.update'));
         $this->get(route('articles.index'))
         ->assertStatus(200);
     }
@@ -32,8 +33,8 @@ class GetArticulesControllerTest extends TestCase
     public function test_show()
     {
         $article_id = News::first();
-
-        $article = $this->get(route('articles.show',['id'=>$article_id->id]))
+        
+        $this->get(route('articles.show',['id'=>$article_id->id]))
         ->assertJsonStructure([
            'data' => [
                 'id',
@@ -48,5 +49,13 @@ class GetArticulesControllerTest extends TestCase
             ]
         ]);
 
+    }
+
+    public function test_delete()
+    {      
+        $article_id = News::first();
+
+        $this->delete(route('articles.delete',['id'=>$article_id->id]))
+        ->assertStatus(200);
     }
 }
