@@ -9,3 +9,5 @@
 ### Atualização diária por crontab
 <p>Crie em seu crontab uma tarefa diária para <code>wget http://localhost/api/articles/update</code> ou substitua para o domínio o IP que estiver utlizando
 
+### Documentação dos endpoints da API
+http://localhost/api/documentation
