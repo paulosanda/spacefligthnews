@@ -28,6 +28,178 @@
                         "description": "Not found"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Create a new article",
+                "operationId": "848e32c6fd39d4181f11f8a047f33022",
+                "requestBody": {
+                    "description": "Create a new article",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "featured": 0,
+                                "title": "Titulo",
+                                "url": "https://testes.teste",
+                                "imageUrl": "https://testes.teste/image",
+                                "newsSite": "https://testes.teste/news",
+                                "summary": "Summary",
+                                "publishedAt": "20222-03-02"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/api/articles/{id}": {
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Get a article",
+                "operationId": "dfa3f979aeffa953a3a227c721052741",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Article id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 5
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "data": [
+                                        {
+                                            "id": 5,
+                                            "featured": null,
+                                            "title": "Titulo",
+                                            "url": "https://testes.teste",
+                                            "imageUrl": "https://testes.teste/image",
+                                            "newsSite": "https://testes.teste/news",
+                                            "summary": "fasdf asdf asdfasdf asdf sadf asdfsadf asdf sadf sdf",
+                                            "publishedAt": "2022-03-02 12:01:02",
+                                            "launches": {
+                                                "id": null,
+                                                "provider": null
+                                            },
+                                            "events": {
+                                                "id": null,
+                                                "provider": null
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Update a article",
+                "operationId": "db4dfe4d3e97e71185497a333109bbc9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Article id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 5
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update a article",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "example": {
+                                "featured": 0,
+                                "title": "Titulo",
+                                "url": "https://testes.teste",
+                                "imageUrl": "https://testes.teste/image",
+                                "newsSite": "https://testes.teste/news",
+                                "summary": "Summary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Delete a article",
+                "operationId": "2971217e08a9fc28d15644157b943fb1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Article id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 5
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
             }
         },
         "/": {
